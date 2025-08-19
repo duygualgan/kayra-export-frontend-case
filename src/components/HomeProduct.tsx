@@ -8,16 +8,14 @@ import { fetcher } from "@/lib/fetcher";
 const BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://fakestoreapi.com";
 
 const HomeProducts = () => {
-  // Tipli kullanım: <Product[], Error>
   const { data, error, isLoading } = useSWR<Product[], Error>(
     `${BASE}/products`,
     (url) => fetcher<Product[]>(url),
     {
-      revalidateOnFocus: true, // sekmeye geri dönünce yeniden doğrula
-      dedupingInterval: 60_000, // aynı isteği 60s içinde tekrar atmaz
-      // refreshInterval: 0,     // istersen arka planda periyodik yenileme ekleyebilirsin
+      revalidateOnFocus: true,
+      dedupingInterval: 60_000, 
     }
-  );
+  )
 
   if (isLoading) return <div>Yükleniyor...</div>;
   if (error) return <div className="text-red-600">Hata: {error.message}</div>;
