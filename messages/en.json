@@ -1,0 +1,13 @@
+{
+  "home": {
+    "title": "Welcome",
+    "description": "This is the English version."
+  },
+  "general":{
+    "loading":"Loading",
+    "error":"Error"
+  },
+  "button":{
+    "addCart":"Add to Cart"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "home": {
+    "title": "Hoşgeldiniz",
+    "description": "Burası Türkçe versiyonudur."
+  },
+    "button":{
+    "addCart":"Sepete Ekle"
+  }
+}
