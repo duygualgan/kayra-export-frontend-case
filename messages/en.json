@@ -1,13 +1,17 @@
 {
-  "home": {
-    "title": "Welcome",
-    "description": "This is the English version."
-  },
-  "general":{
-    "loading":"Loading",
-    "error":"Error"
-  },
-  "button":{
-    "addCart":"Add to Cart"
+  "project": {
+    "home": {
+      "title": "Welcome",
+      "description": "This is the English version.",
+      "popular_product":"Popular Products",
+      "see_more":"See More"
+    },
+    "general": {
+      "loading": "Loading",
+      "error": "Error"
+    },
+    "button": {
+      "add_cart": "Add to Cart"
+    }
   }
 }

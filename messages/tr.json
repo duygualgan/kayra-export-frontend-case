@@ -1,9 +1,13 @@
 {
-  "home": {
-    "title": "Hoşgeldiniz",
-    "description": "Burası Türkçe versiyonudur."
-  },
-    "button":{
-    "addCart":"Sepete Ekle"
+  "project": {
+    "home": {
+      "title": "Hoşgeldiniz",
+      "description": "Burası Türkçe versiyonudur.",
+      "popular_product":"Popüler Ürünler",
+      "see_more":"Tüm Ürünleri Gör"
+    },
+    "button": {
+      "add_cart": "Sepete Ekle"
+    }
   }
 }
