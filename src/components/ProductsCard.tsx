@@ -37,7 +37,7 @@ const ProductsCard = ({ product }: ProductCardProps) => {
               {product.title}
             </h2>
             <p className="mt-2 text-xl font-bold text-indigo-600">
-              {product.price} ₺
+              {product.price}
             </p>
           </div>
         </Link>
