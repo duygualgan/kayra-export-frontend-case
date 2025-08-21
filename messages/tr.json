@@ -4,7 +4,10 @@
       "title": "Hoşgeldiniz",
       "description": "Burası Türkçe versiyonudur.",
       "popular_product":"Popüler Ürünler",
-      "see_more":"Tüm Ürünleri Gör"
+      "see_more":"Tüm Ürünleri Gör",
+      "home":"Anasayfa",
+      "all_product":"Tüm Ürünler",
+      "language":"TR"
     },
     "button": {
       "add_cart": "Sepete Ekle"

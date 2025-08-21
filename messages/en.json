@@ -4,7 +4,10 @@
       "title": "Welcome",
       "description": "This is the English version.",
       "popular_product":"Popular Products",
-      "see_more":"See More"
+      "see_more":"See More",
+      "home":"Home",
+      "all_product":"All Products",
+      "language":"EN"
     },
     "general": {
       "loading": "Loading",
