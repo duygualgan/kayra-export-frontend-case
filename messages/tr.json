@@ -3,23 +3,40 @@
     "home": {
       "title": "Hoşgeldiniz",
       "description": "Burası Türkçe versiyonudur.",
-      "popular_product":"Popüler Ürünler",
-      "see_more":"Tüm Ürünleri Gör",
-      "home":"Anasayfa",
-      "all_product":"Tüm Ürünler",
-      "language":"TR"
+      "popular_product": "Popüler Ürünler",
+      "see_more": "Tüm Ürünleri Gör",
+      "home": "Anasayfa",
+      "all_product": "Tüm Ürünler",
+      "language": "TR"
     },
     "button": {
       "add_cart": "Sepete Ekle"
     },
-    "filter":{
-      "category":"Kategori",
-      "all":"Tümü",
-      "arrangement":"Sıralama",
-      "default":"Varsayılan",
-      "price_ascending":"Fiyat (Artan)",
-      "price_descending":"Fiyat (Azalan)",
-      "price":"Fiyat"
+    "filter": {
+      "category": "Kategori",
+      "all": "Tümü",
+      "arrangement": "Sıralama",
+      "default": "Varsayılan",
+      "price_ascending": "Fiyat (Artan)",
+      "price_descending": "Fiyat (Azalan)",
+      "price": "Fiyat"
+    },
+    "cart": {
+      "your_cart": "Sepetiniz",
+      "summary": "Sipariş Özetiniz",
+      "products": "Ürünler",
+      "total": "Toplam",
+      "checkout": "Ödeme Yap",
+      "empty_cart": "Sepeti Boşalt",
+      "your_cart_empty": "Sepetiniz Boş",
+      "bact_products": "Ürünlere Dön",
+      "delete": "Sil",
+      "remove_product": "Ürün başarıyla sepetten çıkarıldı.",
+      "ok": "Tamam",
+      "cancel": "İptal",
+      "delete_confirm": "Bu işlemi yapmak istediğinizden emin misiniz?",
+      "added_product":"Ürün başarıyla sepete eklendi",
+      "money":"₺"
     }
   }
 }

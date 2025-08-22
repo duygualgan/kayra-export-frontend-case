@@ -24,6 +24,23 @@
       "price_ascending": "Price (Ascending)",
       "price_descending": "Price (Descending)",
       "price": "Price"
+    },
+    "cart":{
+      "your_cart":"Your Cart",
+      "summary":"Order Summary",
+      "products":"Products",
+      "total":"Total",
+      "checkout":"Checkout",
+      "empty_cart":"Empty Cart",
+      "your_cart_empty":"Your Cart is Empty",
+      "back_products":"Back to products",
+      "delete":"Delete",
+      "remove_product":"The product was successfully removed from the cart.",
+      "ok":"Okay",
+      "cancel":"Cancel",
+      "delete_confirm":"Are you sure you want to perform this action?",
+      "added_product":"The product has been successfully added to the cart.",
+      "money":"$"
     }
   }
 }

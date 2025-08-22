@@ -1,7 +1,7 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { useProducts } from "@/hooks/useProducts"; // Ortak hook’umuz
+import { useProducts } from "@/hooks/useProducts";
 import Image from "next/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import Container from "@/components/Container";
@@ -52,7 +52,7 @@ const ProductDetailPage = () => {
           </div>
 
           <div className="mt-8">
-            <AddToCartButton />
+            <AddToCartButton product={product}/>
           </div>
         </div>
       </div>

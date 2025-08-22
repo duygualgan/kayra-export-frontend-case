@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { useLocale } from "next-intl";
 import Container from "@/components/Container";
 import ProductsCard from "@/components/ProductsCard";
 import FiltersBar from "@/components/FiltersBar";

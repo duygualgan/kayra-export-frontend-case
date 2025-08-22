@@ -1,24 +1,31 @@
-import { NextIntlClientProvider } from "next-intl";
 import React from "react";
-import { getMessages } from "next-intl/server";
 import "./globals.css";
 import Header from "@/components/Header";
+import { Toaster } from "react-hot-toast";
+import { getMessages } from "next-intl/server";
+import ClientProviders from "./providers";
 
 export default async function RootLayout({
   children,
-}: Readonly<{
+  params,
+}: {
   children: React.ReactNode;
-}>) {
-  const messages = await getMessages();
+  params: { locale: string };
+}) {
+  const locale = params.locale;
+
+  const messages = await getMessages({ locale });
 
   return (
-    <NextIntlClientProvider messages={messages}>
-      <html lang="en">
-        <body>
+    <html lang={locale}>
+      <body>
+        <ClientProviders messages={messages} locale={locale}>
           <Header />
           {children}
-        </body>
-      </html>
-    </NextIntlClientProvider>
+          <Toaster position="top-center" reverseOrder={false} />
+        </ClientProviders>
+      </body>
+    </html>
   );
 }
+//TODO: burdaki uyarı locale ile alakalı çözülücek...

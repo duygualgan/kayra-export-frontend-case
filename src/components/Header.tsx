@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { usePathname } from "next/navigation";
 import { FaBars, FaShoppingCart, FaTimes } from "react-icons/fa";
+import { useAppSelector } from "@/store/hooks";
 
 const Header = () => {
   const locale = useLocale();
@@ -18,6 +19,10 @@ const Header = () => {
     if (parts.length > 1) parts[1] = locale === "tr" ? "en" : "tr";
     return parts.join("/") || `/${locale === "tr" ? "en" : "tr"}`;
   }, [pathname, locale]);
+
+  const totalCount = useAppSelector((s) =>
+    s.cart.items.reduce((acc, it) => acc + it.quantity, 0)
+  );
 
   return (
     <header className="sticky top-0 z-40 border-b border-gray-200 bg-white/80 backdrop-blur">
@@ -68,9 +73,14 @@ const Header = () => {
             </span>
           </Link>
 
-          <button className="relative">
+          <Link href={`/${locale}/cart`} className="relative">
             <FaShoppingCart size={20} />
-          </button>
+            {totalCount > 0 && (
+              <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+                {totalCount}
+              </span>
+            )}
+          </Link>
         </div>
 
         <button
@@ -119,13 +129,14 @@ const Header = () => {
             </span>
           </Link>
 
-          <button
-            className="relative"
-            onClick={() => setIsOpen(false)}
-            aria-label="Cart"
-          >
+          <Link href={`/${locale}/cart`} className="relative">
             <FaShoppingCart size={20} />
-          </button>
+            {totalCount > 0 && (
+              <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+                {totalCount}
+              </span>
+            )}
+          </Link>
         </div>
       )}
     </header>

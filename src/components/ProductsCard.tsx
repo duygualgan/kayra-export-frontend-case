@@ -6,7 +6,6 @@ import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "./AddToCartButton";
 import { useLocale } from "next-intl";
-import Head from "next/head";
 
 type ProductCardProps = {
   product: Product;
@@ -14,6 +13,8 @@ type ProductCardProps = {
 
 const ProductsCard = ({ product }: ProductCardProps) => {
   const locale = useLocale();
+
+  console.log("product", product);
 
   return (
     <>
@@ -27,6 +28,12 @@ const ProductsCard = ({ product }: ProductCardProps) => {
               height={300}
               priority
               className="object-contain h-52 w-auto transition-transform duration-500 group-hover:scale-105"
+              // unoptimized
+              // onError={(e) => {
+              //   e.currentTarget.src = product.image.replace(".jpg", "_t.png");
+              // }}
+              //TODO: burada categoriye göre verileri çektiğimizde resim png yerine jpg gelmesinden kaynaklı resimler gösterilemiyor bu sebeple resimler gösterilmiyor.
+              //TODO: resimlerin gösterilmesi ile alaklaı sorun çözülücek... 
             />
           </div>
           <div className="p-4">
@@ -42,7 +49,7 @@ const ProductsCard = ({ product }: ProductCardProps) => {
           </div>
         </Link>
         <div className="p-4 pt-0">
-          <AddToCartButton />
+          <AddToCartButton product={product}/>
         </div>
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-200/5 via-purple-200/5 to-pink-200/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       </div>
