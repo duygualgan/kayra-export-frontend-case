@@ -1,7 +1,6 @@
 "use client";
 
 import useSWR from "swr";
-import { Product } from "@/types/product";
 
 const BASE = process.env.NEXT_PUBLIC_API_BASE_URL ?? "https://fakestoreapi.com";
 
@@ -11,13 +10,9 @@ async function fetcher<T>(url: string): Promise<T> {
   return res.json();
 }
 
-export const useProducts = (category?: string) => {
-  const url = category && category !== "all"
-    ? `${BASE}/products/category/${encodeURIComponent(category)}`
-    : `${BASE}/products`;
-
-  const { data, error, isLoading } = useSWR<Product[], Error>(
-    url,
+export const useCategories = () => {
+  const { data, error, isLoading } = useSWR<string[], Error>(
+    `${BASE}/products/categories`,
     fetcher,
     {
       revalidateOnFocus: false,
@@ -26,7 +21,7 @@ export const useProducts = (category?: string) => {
   );
 
   return {
-    products: data ?? [],
+    categories: data ?? [],
     isLoading,
     isError: error,
   };

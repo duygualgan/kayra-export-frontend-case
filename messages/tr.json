@@ -11,6 +11,15 @@
     },
     "button": {
       "add_cart": "Sepete Ekle"
+    },
+    "filter":{
+      "category":"Kategori",
+      "all":"Tümü",
+      "arrangement":"Sıralama",
+      "default":"Varsayılan",
+      "price_ascending":"Fiyat (Artan)",
+      "price_descending":"Fiyat (Azalan)",
+      "price":"Fiyat"
     }
   }
 }
