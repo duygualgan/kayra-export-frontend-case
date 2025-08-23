@@ -1,0 +1,9 @@
+User-agent: Googlebot
+Disallow: /admin/
+Allow: /
+
+User-agent: *
+Disallow: /private/
+Allow: /
+
+Sitemap: https://www.kayraexport-case.com/sitemap.xml

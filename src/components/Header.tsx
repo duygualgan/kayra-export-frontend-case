@@ -44,19 +44,21 @@ const Header = () => {
           <Link
             href={`/${locale}`}
             className="text-sm text-gray-700 hover:text-gray-900 transition"
+            aria-label="anasayfa"
           >
             {t("home.home")}
           </Link>
           <Link
             href={`/${locale}/products`}
             className="text-sm text-gray-700 hover:text-gray-900 transition"
+            aria-label="Tüm Ürünler"
           >
             {t("home.all_product")}
           </Link>
 
           <Link
             href={switchHref}
-            aria-label="Switch language"
+            aria-label="Dil değiştir"
             className="relative inline-flex h-8 w-16 items-center rounded-full bg-gray-200 px-1 transition hover:bg-gray-300"
           >
             <span
@@ -73,7 +75,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <Link href={`/${locale}/cart`} className="relative">
+          <Link href={`/${locale}/cart`} className="relative" aria-label="sepet sayfasına git">
             <FaShoppingCart size={20} />
             {totalCount > 0 && (
               <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
@@ -98,6 +100,7 @@ const Header = () => {
             href={`/${locale}`}
             className="block hover:text-blue-600 transition"
             onClick={() => setIsOpen(false)}
+            aria-label="anasayfa"
           >
             {t("home.home")}
           </Link>
@@ -105,13 +108,14 @@ const Header = () => {
             href={`/${locale}/products`}
             className="block hover:text-blue-600 transition"
             onClick={() => setIsOpen(false)}
+            aria-label="tüm ürünler"
           >
             {t("home.all_product")}
           </Link>
 
           <Link
             href={switchHref}
-            aria-label="Switch language"
+            aria-label="Dil değiştir"
             className="relative inline-flex h-8 w-16 items-center rounded-full bg-gray-200 px-1 transition hover:bg-gray-300"
             onClick={() => setIsOpen(false)}
           >
@@ -129,7 +133,7 @@ const Header = () => {
             </span>
           </Link>
 
-          <Link href={`/${locale}/cart`} className="relative">
+          <Link href={`/${locale}/cart`} className="relative" aria-label="Sepet sayfasına git">
             <FaShoppingCart size={20} />
             {totalCount > 0 && (
               <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">

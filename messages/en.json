@@ -1,8 +1,8 @@
 {
   "project": {
     "home": {
-      "title": "Welcome",
-      "description": "This is the English version.",
+      "title": "Home Page | FakeStore",
+      "description": "Discover popular products, add them to your cart, and shop easily.",
       "popular_product": "Popular Products",
       "see_more": "See More",
       "home": "Home",
@@ -40,7 +40,13 @@
       "cancel":"Cancel",
       "delete_confirm":"Are you sure you want to perform this action?",
       "added_product":"The product has been successfully added to the cart.",
-      "money":"$"
+      "money":"$",
+      "title":"Your Cart",
+      "description":"This is the English version."
+    },
+    "products":{
+      "title":"Products | FakeStore",
+      "description":"Explore products, filter by category and sort by price."
     }
   }
 }

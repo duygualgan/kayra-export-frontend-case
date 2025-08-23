@@ -1,15 +1,37 @@
-"use client";
+import type { Metadata } from "next";
+import HomeClient from "./HomeClient";
+import { getTranslations } from "next-intl/server";
 
-import HomeProducts from "@/components/HomeProduct";
-import { useTranslations } from "next-intl";
+interface HomePageProps {
+  params: { locale: string };
+}
 
-export default function Home() {
-  const t = useTranslations("project");
-  return (
-    <div>
-      <h1 className="text-2xl font-bold mb-6">{t("home.title")}</h1>
-      <h3 className="text-2xl font-bold mb-6">{t("home.description")}</h3>
-      <HomeProducts />
-    </div>
-  );
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL;
+
+export async function generateMetadata({
+  params,
+}: HomePageProps): Promise<Metadata> {
+  const t = await getTranslations({
+    locale: params.locale,
+    namespace: "project",
+  });
+
+  const title = t("home.title");
+  const description = t("home.description");
+
+  return {
+    title,
+    description,
+    alternates: {
+      canonical: `${SITE_URL}/${params.locale}`,
+      languages: {
+        en: "/en",
+        tr: "/tr",
+      },
+    },
+  };
+}
+
+export default function Page() {
+  return <HomeClient />;
 }

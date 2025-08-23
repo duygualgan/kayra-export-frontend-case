@@ -5,7 +5,8 @@ import { Product } from "@/types/product";
 import Image from "next/image";
 import Link from "next/link";
 import AddToCartButton from "./AddToCartButton";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { toProductSlug } from "@/utils/slug";
 
 type ProductCardProps = {
   product: Product;
@@ -14,42 +15,52 @@ type ProductCardProps = {
 const ProductsCard = ({ product }: ProductCardProps) => {
   const locale = useLocale();
 
-  console.log("product", product);
+  const t = useTranslations("project");
+  console.log("duygu",product)
 
   return (
     <>
       <div className="relative group rounded-xl overflow-hidden border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-lg">
-        <Link href={`/${locale}/product/${product.id}`} className="block">
-          <div className="relative w-full h-60 flex items-center justify-center overflow-hidden bg-gray-50">
+        <Link
+          href={`/${locale}/product/${toProductSlug(
+            product.title,
+            product.id
+          )}`}
+          className="block"
+          aria-label="ürün detayına git"
+        >
+          <div className="relative w-full h-60 flex items-center justify-center overflow-hidden bg-gray-50 ">
             <Image
               src={product.image}
               alt={`Buy ${product.title} in ${product.category}`}
               width={300}
               height={300}
-              priority
               className="object-contain h-52 w-auto transition-transform duration-500 group-hover:scale-105"
+              sizes="(min-width:1280px) 25vw, (min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
+              loading="lazy"
               // unoptimized
               // onError={(e) => {
               //   e.currentTarget.src = product.image.replace(".jpg", "_t.png");
               // }}
               //TODO: burada categoriye göre verileri çektiğimizde resim png yerine jpg gelmesinden kaynaklı resimler gösterilemiyor bu sebeple resimler gösterilmiyor.
-              //TODO: resimlerin gösterilmesi ile alaklaı sorun çözülücek... 
+              //TODO: resimlerin gösterilmesi ile alaklaı sorun çözülücek...
             />
           </div>
           <div className="p-4">
             <p className="text-xs uppercase tracking-wide text-gray-400">
               {product.category}
             </p>
-            <h2 className="font-semibold text-lg text-gray-900 line-clamp-2 mt-1">
+            <h2 className="font-semibold text-lg text-gray-900 line-clamp-2 mt-1 h-13">
               {product.title}
             </h2>
             <p className="mt-2 text-xl font-bold text-indigo-600">
               {product.price}
+              {t("cart.money")}
             </p>
           </div>
         </Link>
         <div className="p-4 pt-0">
-          <AddToCartButton product={product}/>
+          <AddToCartButton product={product} />
         </div>
         <div className="absolute inset-0 bg-gradient-to-tr from-indigo-200/5 via-purple-200/5 to-pink-200/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
       </div>

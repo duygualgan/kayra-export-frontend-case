@@ -1,8 +1,8 @@
 {
   "project": {
     "home": {
-      "title": "Hoşgeldiniz",
-      "description": "Burası Türkçe versiyonudur.",
+      "title": "Anasayfa | FakeStore",
+      "description": "En popüler ürünleri keşfedin, sepetinize ekleyin ve kolayca alışveriş yapın.",
       "popular_product": "Popüler Ürünler",
       "see_more": "Tüm Ürünleri Gör",
       "home": "Anasayfa",
@@ -29,14 +29,20 @@
       "checkout": "Ödeme Yap",
       "empty_cart": "Sepeti Boşalt",
       "your_cart_empty": "Sepetiniz Boş",
-      "bact_products": "Ürünlere Dön",
+      "back_products": "Ürünlere Dön",
       "delete": "Sil",
       "remove_product": "Ürün başarıyla sepetten çıkarıldı.",
       "ok": "Tamam",
       "cancel": "İptal",
       "delete_confirm": "Bu işlemi yapmak istediğinizden emin misiniz?",
       "added_product":"Ürün başarıyla sepete eklendi",
-      "money":"₺"
+      "money":"₺",
+      "title":"Sepetiniz",
+      "description":"Burası Türkçe versiyonudur."
+    },
+    "products":{
+      "title":"Ürünler | FakeStore",
+      "description":"Ürünleri keşfedin, kategorilere göre filtreleyin ve fiyata göre sıralayın."
     }
   }
 }

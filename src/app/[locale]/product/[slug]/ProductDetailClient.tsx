@@ -1,20 +1,25 @@
 "use client";
 
-import { useParams } from "next/navigation";
-import { useProducts } from "@/hooks/useProducts";
 import Image from "next/image";
 import AddToCartButton from "@/components/AddToCartButton";
 import Container from "@/components/Container";
+import Spinner from "@/components/Spinner";
+import { useTranslations } from "next-intl";
+import { useProducts } from "@/hooks/useProducts";
 
-const ProductDetailPage = () => {
-  const { id } = useParams(); 
-  const { products, isError, isLoading } = useProducts();
-
-  if (isLoading) return <div className="p-10 text-center">Yükleniyor...</div>;
-  if (isError)
-    return <div className="p-10 text-red-600">Hata: {isError.message}</div>;
+export default function ProductDetailClient({ id }: { id: string }) {
+  const { products, isLoading } = useProducts();
+  const t = useTranslations("project");
 
   const product = products?.find((p) => String(p.id) === id);
+
+  if (isLoading) {
+    return (
+      <Container className="flex items-center justify-center min-h-[60vh]">
+        <Spinner />
+      </Container>
+    );
+  }
 
   if (!product) {
     return (
@@ -31,7 +36,9 @@ const ProductDetailPage = () => {
             alt={product.title}
             width={500}
             height={500}
+            priority
             className="object-contain max-h-[500px] w-auto"
+            sizes="(min-width:1024px) 50vw, 100vw"
           />
         </div>
 
@@ -47,17 +54,16 @@ const ProductDetailPage = () => {
               {product.description}
             </p>
             <p className="mt-6 text-4xl font-bold text-indigo-600">
-              ${product.price}
+              {product.price}
+              {t("cart.money")}
             </p>
           </div>
 
           <div className="mt-8">
-            <AddToCartButton product={product}/>
+            <AddToCartButton product={product} />
           </div>
         </div>
       </div>
     </Container>
   );
-};
-
-export default ProductDetailPage;
+}
