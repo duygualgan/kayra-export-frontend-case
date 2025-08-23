@@ -10,13 +10,13 @@ import { toProductSlug } from "@/utils/slug";
 
 type ProductCardProps = {
   product: Product;
+  priority?: boolean;
 };
 
-const ProductsCard = ({ product }: ProductCardProps) => {
+const ProductsCard = ({ product,priority }: ProductCardProps) => {
   const locale = useLocale();
 
   const t = useTranslations("project");
-  console.log("duygu",product)
 
   return (
     <>
@@ -37,7 +37,8 @@ const ProductsCard = ({ product }: ProductCardProps) => {
               height={300}
               className="object-contain h-52 w-auto transition-transform duration-500 group-hover:scale-105"
               sizes="(min-width:1280px) 25vw, (min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw"
-              loading="lazy"
+              // loading="lazy"
+               priority={priority} 
               // unoptimized
               // onError={(e) => {
               //   e.currentTarget.src = product.image.replace(".jpg", "_t.png");

@@ -62,8 +62,12 @@ export default function ProductsPageClient() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full items-stretch">
-          {filteredAndSorted.map((product) => (
-            <ProductsCard key={product.id} product={product} />
+          {filteredAndSorted.map((product, index) => (
+            <ProductsCard
+              key={product.id}
+              product={product}
+              priority={index === 0}
+            />
           ))}
         </div>
       </div>
