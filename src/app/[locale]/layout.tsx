@@ -27,4 +27,3 @@ export default async function RootLayout({
     </html>
   );
 }
-//TODO: burdaki uyarı locale ile alakalı çözülücek...

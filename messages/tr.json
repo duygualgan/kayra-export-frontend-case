@@ -7,7 +7,10 @@
       "see_more": "Tüm Ürünleri Gör",
       "home": "Anasayfa",
       "all_product": "Tüm Ürünler",
-      "language": "TR"
+      "language": "TR",
+      "go_to_cart": "sepete git",
+      "switch_language": "dil değiştir",
+      "menu_toggle": "menu ikonu"
     },
     "button": {
       "add_cart": "Sepete Ekle"
@@ -35,14 +38,25 @@
       "ok": "Tamam",
       "cancel": "İptal",
       "delete_confirm": "Bu işlemi yapmak istediğinizden emin misiniz?",
-      "added_product":"Ürün başarıyla sepete eklendi",
-      "money":"₺",
-      "title":"Sepetiniz",
-      "description":"Burası Türkçe versiyonudur."
+      "added_product": "Ürün başarıyla sepete eklendi",
+      "money": "₺",
+      "title": "Sepetiniz",
+      "description": "Burası Türkçe versiyonudur."
     },
-    "products":{
-      "title":"Ürünler | FakeStore",
-      "description":"Ürünleri keşfedin, kategorilere göre filtreleyin ve fiyata göre sıralayın."
+    "products": {
+      "title": "Ürünler | FakeStore",
+      "description": "Ürünleri keşfedin, kategorilere göre filtreleyin ve fiyata göre sıralayın."
+    },
+    "login": {
+      "title": "Giriş Yap",
+      "description": "Devam etmek için hesabınızla giriş yapın.",
+      "button": "Auth0 ile Giriş Yap",
+      "login": "Giriş Yap",
+      "logout": "Çıkış Yap",
+      "loading": "Yükleniyor...",
+      "google_button": "Google ile devam et",
+      "github_button": "GitHub ile devam et",
+      "facebook_button": "Facebook ile devam et"
     }
   }
 }

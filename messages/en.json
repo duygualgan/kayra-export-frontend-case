@@ -7,7 +7,10 @@
       "see_more": "See More",
       "home": "Home",
       "all_product": "All Products",
-      "language": "EN"
+      "language": "EN",
+      "go_to_cart": "go to cart",
+      "switch_language": "switch language",
+      "menu_toggle": "menu toggle"
     },
     "general": {
       "loading": "Loading",
@@ -25,28 +28,40 @@
       "price_descending": "Price (Descending)",
       "price": "Price"
     },
-    "cart":{
-      "your_cart":"Your Cart",
-      "summary":"Order Summary",
-      "products":"Products",
-      "total":"Total",
-      "checkout":"Checkout",
-      "empty_cart":"Empty Cart",
-      "your_cart_empty":"Your Cart is Empty",
-      "back_products":"Back to products",
-      "delete":"Delete",
-      "remove_product":"The product was successfully removed from the cart.",
-      "ok":"Okay",
-      "cancel":"Cancel",
-      "delete_confirm":"Are you sure you want to perform this action?",
-      "added_product":"The product has been successfully added to the cart.",
-      "money":"$",
-      "title":"Your Cart",
-      "description":"This is the English version."
+    "cart": {
+      "your_cart": "Your Cart",
+      "summary": "Order Summary",
+      "products": "Products",
+      "total": "Total",
+      "checkout": "Checkout",
+      "empty_cart": "Empty Cart",
+      "your_cart_empty": "Your Cart is Empty",
+      "back_products": "Back to products",
+      "delete": "Delete",
+      "remove_product": "The product was successfully removed from the cart.",
+      "ok": "Okay",
+      "cancel": "Cancel",
+      "delete_confirm": "Are you sure you want to perform this action?",
+      "added_product": "The product has been successfully added to the cart.",
+      "money": "$",
+      "title": "Your Cart",
+      "description": "This is the English version."
     },
-    "products":{
-      "title":"Products | FakeStore",
-      "description":"Explore products, filter by category and sort by price."
+    "products": {
+      "title": "Products | FakeStore",
+      "description": "Explore products, filter by category and sort by price."
+    },
+    "login": {
+      "title": "Giriş Yap",
+      "description": "Devam etmek için hesabınızla giriş yapın.",
+      "button": "Auth0 ile Giriş Yap",
+      "login": "Login",
+      "logout": "Logout",
+      "loading": "Loading...",
+       "google_button": "Continue with Google",
+      "github_button": "Continue with GitHub",
+      "facebook_button": "Continue with Facebook"
+      
     }
   }
 }
