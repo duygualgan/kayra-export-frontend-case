@@ -1,16 +1,14 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { withAuth } from "next-auth/middleware";
-import { NextResponse } from "next/server";
+import { NextResponse, type NextFetchEvent } from "next/server";
+import createMiddleware from "next-intl/middleware";
+import { routing } from "./i18n/routing";
 
-export default withAuth(
-  function middleware(req) {
-    const token = req.nextauth.token;
-    const { pathname } = req.nextUrl;
+const nextIntlMiddleware = createMiddleware(routing);
 
-    if (pathname.startsWith("/tr/cart") || pathname.startsWith("/en/cart")) {
-      if (!token) {
-        return NextResponse.redirect(new URL("/tr/login", req.url));
-      }
-    }
+const authMiddleware = withAuth(
+  function middleware() {
+    
     return NextResponse.next();
   },
   {
@@ -23,6 +21,20 @@ export default withAuth(
   }
 );
 
+export default async function middleware(req: any, event: NextFetchEvent) {
+  const isAuthRoute = req.nextUrl.pathname.startsWith("/api/auth");
+  const isAuthCallback = req.nextUrl.pathname.startsWith("/api/auth/callback");
+
+  if (!isAuthRoute && !isAuthCallback) {
+    const nextIntlResult = nextIntlMiddleware(req);
+    if (nextIntlResult) {
+      return nextIntlResult;
+    }
+  }
+
+  return authMiddleware(req, event);
+}
+
 export const config = {
-  matcher: ["/:locale/(admin|cart)"],
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

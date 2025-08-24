@@ -18,6 +18,7 @@ import toast from "react-hot-toast";
 export default function CartPage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [isClearAll, setIsClearAll] = useState(false)
 
   const locale = useLocale();
   const dispatch = useAppDispatch();
@@ -29,15 +30,25 @@ export default function CartPage() {
   const handleRemoveClick = (id: number) => {
     setSelectedId(id);
     setModalOpen(true);
+    setIsClearAll(false)
   };
 
-  const handleConfirmRemove = () => {
-    if (selectedId !== null) {
+    const handleClearCartClick = () => {
+    setIsClearAll(true); 
+    setModalOpen(true);
+  };
+
+   const handleConfirmAction = () => {
+    if (isClearAll) {
+      dispatch(clearCart());
+      toast.success(t("cart.remove_product"));
+    } else if (selectedId !== null) {
       dispatch(removeFromCart(selectedId));
       toast.success(t("cart.remove_product"));
     }
     setModalOpen(false);
     setSelectedId(null);
+    setIsClearAll(false);
   };
 
   return (
@@ -69,13 +80,13 @@ export default function CartPage() {
                     key={it.id}
                     className="flex gap-4 items-center bg-white p-4 rounded-lg shadow-sm"
                   >
-                    <div className="w-24 h-24 flex items-center justify-center bg-gray-50 rounded-md overflow-hidden">
+                    <div className="flex-shrink-0 w-24 h-24 sm:w-20 sm:h-20 xs:w-16 xs:h-16 flex items-center justify-center bg-gray-50 rounded-md overflow-hidden">
                       <Image
                         src={it.image}
                         alt={it.title}
                         width={96}
                         height={96}
-                        className="object-contain"
+                        className="object-contain w-full h-full"
                         unoptimized
                         loading="lazy"
                       />
@@ -169,7 +180,7 @@ export default function CartPage() {
               </button>
 
               <button
-                onClick={() => dispatch(clearCart())}
+                onClick={handleClearCartClick}
                 className="w-full mt-3 py-2 rounded-lg border text-sm"
               >
                 {t("cart.empty_cart")}
@@ -181,7 +192,7 @@ export default function CartPage() {
 
       <ConfirmModal
         isOpen={modalOpen}
-       onConfirm={handleConfirmRemove}
+        onConfirm={handleConfirmAction}
         onCancel={() => {
           setModalOpen(false);
           setSelectedId(null);

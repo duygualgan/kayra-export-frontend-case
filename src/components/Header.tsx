@@ -98,7 +98,7 @@ const NavMenu = ({ handleClose }: { handleClose: () => void }) => {
       >
         <FaShoppingCart size={20} />
         {totalCount > 0 && (
-          <span className="absolute -top-2 -right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+          <span className="absolute -top-2 -right-2 inline-flex items-center justify-center h-4 w-4 text-[10px] font-bold leading-none text-white bg-red-600 rounded-full">
             {totalCount}
           </span>
         )}
@@ -139,7 +139,7 @@ const Header = () => {
         </button>
       </nav>
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-4">
+        <div className="md:hidden bg-white border-t border-gray-200 px-4 py-3 space-y-4 flex flex-col items-start">
           <NavMenu handleClose={() => setIsOpen(false)} />
         </div>
       )}
